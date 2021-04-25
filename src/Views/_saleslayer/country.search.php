@@ -1,4 +1,9 @@
-{% extends "dashboard.php" %}
+{% if _post.ajax  %}
+    {% set extendedTemplate = "blank.php" %}
+{% else %}
+    {% set extendedTemplate = "dashboard.php" %}
+{% endif %}
+{% extends extendedTemplate %}
 {% block content %}
 <div class="col-md-12 mt-4">
 
@@ -11,7 +16,7 @@
       </div>
 
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative p-4">
-        <form class="w-100" method="POST">
+        <form class="w-100" method="POST" id="searchCountryForm">
           <div class="form-row align-items-center">
             <div class="col-9">
               <label class="sr-only" for="inlineFormInput">Country Name</label>
@@ -31,8 +36,16 @@
             <div class="col-auto m-2">
               <div class="form-check mb-2">
                 <input class="form-check-input" type="checkbox" id="searchOffline" name="searchOffline" {{ _post.searchOffline ? 'checked' : '' }}>
-                <label class="form-check-label" for="autoSizingCheck">
+                <label class="form-check-label" for="searchOffline">
                   Offline
+                </label>
+              </div>
+            </div>
+            <div class="col-auto m-2">
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="searchAjax" name="searchAjax" {{ _post.searchAjax ? 'checked' : '' }}>
+                <label class="form-check-label" for="searchAjax">
+                  Ajax
                 </label>
               </div>
             </div>
