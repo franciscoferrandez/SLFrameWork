@@ -2,20 +2,20 @@
 SalesLayer Framework is a demo on how to build a simple and reusable MVC framework from scratch.
 
 Using following components:
-https://www.doctrine-project.org/projects/doctrine-orm/en/2.8/index.html
-https://www.doctrine-project.org/projects/doctrine-migrations/en/3.0/index.html
+1. https://www.doctrine-project.org/projects/doctrine-orm/en/2.8/index.html
+2. https://www.doctrine-project.org/projects/doctrine-migrations/en/3.0/index.html
 
-https://github.com/mark-gerarts/automapper-plus
+3. https://github.com/mark-gerarts/automapper-plus
 
-https://github.com/tcdent/php-restclient
-https://github.com/vlucas/phpdotenv
-https://github.com/bramus/router
-https://twig.symfony.com/doc/3.x/intro.html#installation
+4. https://github.com/tcdent/php-restclient
+5. https://github.com/vlucas/phpdotenv
+6. https://github.com/bramus/router
+7. https://twig.symfony.com/doc/3.x/intro.html
 
 
-https://getbootstrap.com/docs/4.5/examples/
-https://bootstrap-autocomplete.readthedocs.io/en/latest/
-https://raw.githack.com/xcash/bootstrap-autocomplete/master/dist/latest/index.html
+1. https://getbootstrap.com/docs/4.5/examples/
+2. https://bootstrap-autocomplete.readthedocs.io/en/latest/
+3. https://raw.githack.com/xcash/bootstrap-autocomplete/master/dist/latest/index.html
 
 
 ## Installation
