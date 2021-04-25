@@ -53,8 +53,7 @@ class CountryService extends DoctrineBaseService {
         $result = $this->api->getByName($name);
 
         // al venir de una api viene en DTO, mapeamos
-        if ($result) $this->mapper->mapMultiple($result, Models\Country::class);
-
+        if ($result) $result = $this->mapper->mapMultiple($result, Models\Country::class);
 
         return $result;  
     }

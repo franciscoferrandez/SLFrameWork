@@ -9,6 +9,9 @@ $automapperConfig = new AutoMapperConfig();
 $automapperConfig->registerMapping(\stdClass::class, CountryNameDTO::class);
 $automapperConfig->registerMapping(\stdClass::class, CountryDTO::class);
 
+$automapperConfig->registerMapping(Models\CountryName::class, CountryNameDTO::class);
+$automapperConfig->registerMapping(Models\Country::class, CountryDTO::class);
+
 $automapperConfig->registerMapping(CountryNameDTO::class, Models\CountryName::class);
 $automapperConfig->registerMapping(CountryDTO::class, Models\Country::class)
     ->forMember('borders', function (CountryDTO $source) {

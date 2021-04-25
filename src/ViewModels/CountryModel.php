@@ -23,6 +23,8 @@ class CountryModel extends HttpBaseModel
             if ($this->countries) $this->source = "offline";
         }
 
+        $this->countries = $this->mapper->mapMultiple($this->countries, CountryDTO::class);
+
         return $this;
     }
 }
