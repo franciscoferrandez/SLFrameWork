@@ -6,3 +6,8 @@ $twig = new \Twig\Environment($loader, [
     //'cache' => __DIR__.'/../../cache',
     'cache' => false,
 ]);
+
+
+$twig->addGlobal('_post', $_POST);
+$twig->addGlobal('_get', $_GET);
+//if (defined($_SESSION)) $twig->addGlobal('_session', $_SESSION);

@@ -14,15 +14,15 @@ $automapperConfig->registerMapping(CountryDTO::class, Models\Country::class)
     ->forMember('borders', function (CountryDTO $source) {
         return implode("|", $source->borders);})
     ->forMember('latlng', function (CountryDTO $source) {
-        return implode("|", $source->borders);})
+        return implode("|", $source->latlng);})
     ->forMember('timezones', function (CountryDTO $source) {
-        return implode("|", $source->borders);})
+        return implode("|", $source->timezones);})
     ->forMember('translations', function (CountryDTO $source) {
-        return implode("|", $source->borders);})
+        return implode("|", $source->translations);})
     ->forMember('currencies', function (CountryDTO $source) {
-        return implode("|", $source->borders);})
+        return implode("|", $source->currencies);})
     ->forMember('languages', function (CountryDTO $source) {
-        return implode("|", $source->borders);
+        return implode("|", $source->languages);
     });
 $mapper = new AutoMapper($automapperConfig);
 

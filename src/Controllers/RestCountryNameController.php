@@ -16,7 +16,14 @@ class RestCountryNameController {
     {
         $this->returnJsonData($this->countryApi->getNames());
     }
-    
+ 
+     public function truncate() {
+        if ($this->svc->truncate()):
+            http_response_code(200);
+        else:
+            http_response_code(400);
+        endif;
+    }   
     
     public function import() {
         if ($this->svc->saveCountryNameCache()):

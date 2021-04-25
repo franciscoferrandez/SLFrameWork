@@ -2,3 +2,5 @@ cache
 vendor
 node_modules
 *.komodoproject
+.phpintel
+log

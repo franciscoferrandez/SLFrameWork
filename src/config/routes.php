@@ -83,6 +83,22 @@
         }
     });
     
+    $router->all('/(\w+)/(\w+)', function ($entity, $method) use ($router) {
+        try {
+            $controllerName = $entity."Controller";
+            if (!class_exists($controllerName)) $router->trigger404();
+
+            $controller = new $controllerName($entity."Model");
+            if (method_exists($controller,$method)) {
+                $controller->$method();
+            } else {
+                $router->trigger404();
+            }
+        } catch (Exception $e) {
+            die($e->getMessage());
+            $router->trigger404();
+        }
+    });
 
     
     $router->before('GET|POST', '/admin/.*', function() {

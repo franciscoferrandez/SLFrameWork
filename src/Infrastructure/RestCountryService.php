@@ -30,6 +30,7 @@ class RestCountryService {
             //return $this->iterateAndMapTo($result, CountryDTO::class);
             return $this->mapper->mapMultiple($result, CountryDTO::class);
         } else {
+            return false;
             die("Error " . $result->info->http_code);
         }
     }
@@ -40,6 +41,7 @@ class RestCountryService {
         if($result->info->http_code == 200) {
             return $this->mapper->mapMultiple($result, CountryNameDTO::class);
         } else {
+            return false;
             die("Error " . $result->info->http_code);
         }
     }
@@ -50,6 +52,18 @@ class RestCountryService {
         if($result->info->http_code == 200) {
             return $this->mapper->map($result->decode_response(), CountryDTO::class);
         } else {
+            return false;
+            die("Error " . $result->info->http_code);
+        }
+    }
+    
+    
+    function getByName($name) {
+        $result = $this->api->get("name/".$name);
+        if($result->info->http_code == 200) {
+            return $this->mapper->mapMultiple($result->decode_response(), CountryDTO::class);
+        } else {
+            return false;
             die("Error " . $result->info->http_code);
         }
     }

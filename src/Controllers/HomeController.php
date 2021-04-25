@@ -16,7 +16,7 @@ class HomeController {
     }
     public function index()
     {
-        $template = $this->twig->load('dashboard.php');
+        $template = $this->twig->load('home.php');
         echo $template->render(['env' => $_ENV]);
         
         exit();
@@ -34,6 +34,20 @@ class HomeController {
         header('location: /login');
         exit();
     }
+    
+    
+    public function card()
+    {
+        $template = $this->twig->load('part.horizontal-card.php');
+        echo $template->render(['env' => $_ENV]);
+        
+        exit();
+        
+        header('location: /admin/dashboard');
+        exit();
+    }
+    
+    
     
     public function phpinfo()
     {
