@@ -29,4 +29,3 @@ $automapperConfig->registerMapping(CountryDTO::class, Models\Country::class)
     });
 $mapper = new AutoMapper($automapperConfig);
 
-//die(print_r($mapper,true));

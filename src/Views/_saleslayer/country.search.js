@@ -10,6 +10,14 @@ $(function() {
 	  		$( this ).on('click', window[$(this).attr("aria-command")]);
 		});
 
+ 		// asignación dinámica de botones de comando
+ 		$('a.viewCountryInfo').each(function( index ) {
+	  		$( this ).on('click', function (e) {
+	  			e.preventDefault();
+	  			$('#bootstrapModal').modal('show', $(this));
+	  		});
+		});
+
 		// submit de formulario al hacer intro
 		$('input').keypress(function (e) {
 		  if (e.which == 13) {
@@ -33,10 +41,38 @@ $(function() {
 			}
 		});
 	}
-
-
-
 	initialize();
+
+	// evento al mostrar el popup
+	$('#bootstrapModal').on('show.bs.modal', function (e) {
+
+		var modal = $(this);
+		var modalBody = $(".modal-body", this);
+		var modalTitle = $(".modal-title", this);
+		var src = $(e.relatedTarget);
+
+		modalBody.html("<div id='map' style='width:100%;height:600px;'></div>");
+		modalTitle.html(src.attr("countryName"));
+
+		setTimeout(function () {
+			var map = L.map('map').
+			setView(JSON.parse(src.attr('latlng')), 
+			4);
+			 
+			L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+			    maxZoom: 14
+			}).addTo(map);
+
+			L.control.scale().addTo(map);
+			L.marker(JSON.parse(src.attr('latlng')), {draggable: true}).addTo(map);
+
+			map.invalidateSize();
+		},500);
+
+	})
+
+
  
 });
 

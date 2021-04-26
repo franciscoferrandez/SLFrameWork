@@ -10,4 +10,5 @@ $twig = new \Twig\Environment($loader, [
 
 $twig->addGlobal('_post', $_POST);
 $twig->addGlobal('_get', $_GET);
-//if (defined($_SESSION)) $twig->addGlobal('_session', $_SESSION);
+$twig->addGlobal('_env', $_ENV);
+

@@ -1,7 +1,7 @@
 {% if _post.ajax  %}
-    {% set extendedTemplate = "blank.php" %}
+    {% set extendedTemplate = "layout/blank/blank.php" %}
 {% else %}
-    {% set extendedTemplate = "dashboard.php" %}
+    {% set extendedTemplate = "layout/dashboard/dashboard.php" %}
 {% endif %}
 {% extends extendedTemplate %}
 {% block content %}
@@ -53,7 +53,7 @@
         </form>
       </div>
     </div>
-    {% include 'part.horizontal-card.php' %}
+    {% include 'parts/horizontal-card.php' %}
 {% endblock %}
 {% block scripts %}
     {{ parent() }}
